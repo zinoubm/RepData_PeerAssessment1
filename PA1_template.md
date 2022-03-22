@@ -1,8 +1,9 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
-output: 
+title: 'Reproducible Research: Peer Assessment 1'
+output:
+  pdf_document: default
   html_document:
-    keep_md: true
+    keep_md: yes
 ---
 
 
@@ -26,7 +27,7 @@ totalSteps <- activity %>% select(steps, date) %>%
 hist(totalSteps$total_steps, xlab = "Total Steps Per Day", main = "Histogram of Steps Per Day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20-1.png)
 
 ### Mean and Median values
 #### Mean
@@ -61,7 +62,7 @@ averageStespsDF <- activity %>% select(steps, interval) %>%
 plot(averageStespsDF$interval, averageStespsDF$average_steps, type = "l", xlab = "Time Interval", ylab = "Average Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23-1.png)
 
 ```r
 maxStepsInterval <- averageStespsDF %>% filter(average_steps == max(average_steps))
@@ -109,7 +110,7 @@ imputedTotalSteps <- imputedDf %>% select(steps, date) %>%
 hist(imputedTotalSteps$total_steps, xlab = "Total Steps", main = "Histogram of Total Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26-1.png)
 
 #### Mean Value
 
@@ -154,8 +155,8 @@ weekDays <- weekDays %>%
      group_by(interval, fweekDay) %>%
      summarise(average_steps = mean(steps))
 
-xyplot(average_steps~interval|fweekDay, type = "l", data = weekDays, groups = fweekDay, layout = c(2, 1), ylab = "Average Steps")
+xyplot(average_steps~interval|fweekDay, type = "l", data = weekDays, groups = fweekDay, layout = c(2, 1), ylab = "Average Steps.")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29-1.png)
 
